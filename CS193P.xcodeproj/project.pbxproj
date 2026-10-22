@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		FA1BD2A530892D15004381BB /* CS193P.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS193P.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1BD2A530892D15004381BB /* CodeBreakerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBreakerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,7 +38,7 @@
 		FA1BD2A630892D15004381BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA1BD2A530892D15004381BB /* CS193P.app */,
+				FA1BD2A530892D15004381BB /* CodeBreakerApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,9 +46,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA1BD2A430892D15004381BB /* CS193P */ = {
+		FA1BD2A430892D15004381BB /* CodeBreakerApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA1BD2B030892D16004381BB /* Build configuration list for PBXNativeTarget "CS193P" */;
+			buildConfigurationList = FA1BD2B030892D16004381BB /* Build configuration list for PBXNativeTarget "CodeBreakerApp" */;
 			buildPhases = (
 				FA1BD2A130892D15004381BB /* Sources */,
 				FA1BD2A230892D15004381BB /* Frameworks */,
@@ -59,9 +59,9 @@
 			fileSystemSynchronizedGroups = (
 				FA1BD2A730892D15004381BB /* CS193P */,
 			);
-			name = CS193P;
+			name = CodeBreakerApp;
 			productName = CS193P;
-			productReference = FA1BD2A530892D15004381BB /* CS193P.app */;
+			productReference = FA1BD2A530892D15004381BB /* CodeBreakerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -93,7 +93,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA1BD2A430892D15004381BB /* CS193P */,
+				FA1BD2A430892D15004381BB /* CodeBreakerApp */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 			};
 			name = Release;
 		};
-		FA1BD2B130892D16004381BB /* Debug configuration for PBXNativeTarget "CS193P" */ = {
+		FA1BD2B130892D16004381BB /* Debug configuration for PBXNativeTarget "CodeBreakerApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -265,7 +265,7 @@
 			};
 			name = Debug;
 		};
-		FA1BD2B230892D16004381BB /* Release configuration for PBXNativeTarget "CS193P" */ = {
+		FA1BD2B230892D16004381BB /* Release configuration for PBXNativeTarget "CodeBreakerApp" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -307,11 +307,11 @@
 			);
 			defaultConfigurationName = Release;
 		};
-		FA1BD2B030892D16004381BB /* Build configuration list for PBXNativeTarget "CS193P" */ = {
+		FA1BD2B030892D16004381BB /* Build configuration list for PBXNativeTarget "CodeBreakerApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA1BD2B130892D16004381BB /* Debug configuration for PBXNativeTarget "CS193P" */,
-				FA1BD2B230892D16004381BB /* Release configuration for PBXNativeTarget "CS193P" */,
+				FA1BD2B130892D16004381BB /* Debug configuration for PBXNativeTarget "CodeBreakerApp" */,
+				FA1BD2B230892D16004381BB /* Release configuration for PBXNativeTarget "CodeBreakerApp" */,
 			);
 			defaultConfigurationName = Release;
 		};

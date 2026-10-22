@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CS193PApp: App {
+struct CodeBreakerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
