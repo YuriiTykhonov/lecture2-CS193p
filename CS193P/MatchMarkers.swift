@@ -85,6 +85,8 @@ struct MatchMarkersPreview: View {
         MatchMarkersPreview(matches: [.exact, .nomatch, .inexact, .exact])
         MatchMarkersPreview(matches: [.exact, .nomatch, .inexact, .exact])
         MatchMarkersPreview(matches: [.exact, .inexact, .nomatch, .exact, .inexact, .exact])
+        MatchMarkersPreview(matches: [.inexact, .nomatch, .exact, .inexact, .exact])
+        MatchMarkersPreview(matches: [.exact, .inexact, .exact, .inexact, .exact])
     }
     .padding()
 }
