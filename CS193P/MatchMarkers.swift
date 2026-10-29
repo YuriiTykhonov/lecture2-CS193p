@@ -16,7 +16,7 @@ enum Match {
 struct MatchMarkers: View {
     var matches: [Match]
     var body: some View {
-        HStack {
+        HStack(spacing: -20){
             VStack {
                 if matches.count > 0 {
                     matchMarker(peg: 0)
@@ -25,7 +25,7 @@ struct MatchMarkers: View {
                     matchMarker(peg: 1)
                 }
             }
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             VStack {
                 if matches.count > 2 {
                     matchMarker(peg: 2)
@@ -34,7 +34,7 @@ struct MatchMarkers: View {
                     matchMarker(peg: 3)
                 }
             }
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             VStack {
                 if matches.count > 4 {
                     matchMarker(peg: 4)
@@ -43,7 +43,7 @@ struct MatchMarkers: View {
                     matchMarker(peg: 5)
                 }
             }
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
         }
     }
     //6 Color.primary підлаштовується під світлу й темну теми.
@@ -61,7 +61,7 @@ struct MatchMarkers: View {
 struct MatchMarkersPreview: View {
     var matches: [Match]
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 5) {
             HStack(spacing: 5) {
                 ForEach(0..<matches.count, id: \.self) { _ in
                     Circle()
@@ -86,7 +86,7 @@ struct MatchMarkersPreview: View {
         MatchMarkersPreview(matches: [.exact, .nomatch, .inexact, .exact])
         MatchMarkersPreview(matches: [.exact, .inexact, .nomatch, .exact, .inexact, .exact])
         MatchMarkersPreview(matches: [.inexact, .nomatch, .exact, .inexact, .exact])
-        MatchMarkersPreview(matches: [.exact, .inexact, .exact, .inexact, .exact])
+        MatchMarkersPreview(matches: [.exact, .inexact, .exact, .inexact, .exact, .nomatch])
     }
     .padding()
 }
