@@ -25,7 +25,7 @@ import SwiftUI
 struct CodeBreakerView: View {
     @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black], numberOfPegs: 6)
 // Тут ми просто вказуємо, що зараз тестуємо гру з шістьма фішками.
-
+// In the future I will change something
     var body: some View {
         VStack {
             Button("Restart Game") {
