@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CodeBreakerView: View {
-    @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black])
+//struct CodeBreakerView: View {
+//    @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black])
     
 //    var body: some View {
 //        VStack {
@@ -22,13 +22,19 @@ struct CodeBreakerView: View {
 //        }
 //        .padding()
 //    }
-    
+struct CodeBreakerView: View {
+    @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black], numberOfPegs: 6)
+// Тут ми просто вказуємо, що зараз тестуємо гру з шістьма фішками.
+
     var body: some View {
         VStack {
             Button("Restart Game") {
                 withAnimation {
-                    game = CodeBreaker(pegChoices: game.pegChoices)
+                    game = CodeBreaker(pegChoices: game.pegChoices,
+                                       numberOfPegs: Int.random(in: 3...6))
                 }
+//Тепер Restart Game зберігатиме поточну кількість фішок.
+//	У цьому завданні потрібно змінити Restart Game так, щоб нова гра випадково отримувала кількість фішок від 3 до 6. Тож ми реалізуємо це через Int.random
             }
             view(for: game.masterCode)
             ScrollView {
