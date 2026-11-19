@@ -7,21 +7,6 @@
 
 import SwiftUI
 
-//struct CodeBreakerView: View {
-//    @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black])
-    
-//    var body: some View {
-//        VStack {
-//            view(for: game.masterCode)
-//            ScrollView {
-//                view(for: game.guess)
-//                ForEach(game.attempts.indices.reversed(), id: \.self) {index in
-//                    view(for: game.attempts[index])
-//                }
-//            }
-//        }
-//        .padding()
-//    }
 struct CodeBreakerView: View {
     @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black], numberOfPegs: 6)
 // Тут ми просто вказуємо, що зараз тестуємо гру з шістьма фішками.

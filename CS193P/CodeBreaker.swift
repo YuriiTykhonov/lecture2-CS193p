@@ -37,25 +37,6 @@ let numberOfPegs: Int
         print(masterCode)
     }
 
-//struct CodeBreaker {
-//    var masterCode: Code = Code(kind: .master)
-//    var guess: Code = Code(kind: .guess)
-//    var attempts: [Code] = []
-//    let pegChoices: [Peg]
-//    
-//    init(pegChoices: [Peg] = [.red, .green, .blue, .yellow]) {
-//        self.pegChoices = pegChoices
-//        masterCode.randomize(from: pegChoices)
-//        print(masterCode)
-//    }
-    
-//    mutating func attemptGuess() {
-//        var attempt = guess
-//        attempt.kind = .attempt(guess.match(against: masterCode))
-//        attempts.append(attempt)
-//    }
-    
-    
     mutating func attemptGuess() {
         guard !guess.pegs.allSatisfy({$0 == Code.missing}) else {
             return
@@ -91,12 +72,6 @@ let numberOfPegs: Int
     }
 }
 
-//struct Code {
-//    var kind: Kind
-//    var pegs: [Peg] = Array(repeating: Code.missing, count: 4)
-//    
-//    static let missing: Peg = .clear
-
 struct Code {
     var kind: Kind
     var pegs: [Peg]
@@ -116,12 +91,6 @@ struct Code {
         case attempt([Match])
         case unkown
     }
-    
-//    mutating func randomize(from pegChoice: [Peg]) {
-//        for index in pegChoice.indices {
-//            pegs[index] = pegChoice.randomElement() ?? Code.missing
-//        }
-//    }
     
     mutating func randomize(from pegChoice: [Peg]) {
         for index in pegs.indices {
