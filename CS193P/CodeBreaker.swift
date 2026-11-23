@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-typealias Peg = Color
+typealias Peg = String
 
 struct CodeBreaker {
 var masterCode: Code
@@ -17,7 +17,7 @@ let pegChoices: [Peg]
 let numberOfPegs: Int
 //   Додали нову властивість:  numberOfPegs Тепер сама гра пам'ятає, скільки фішок у ній повинно бути.
     init(
-        pegChoices: [Peg] = [.red, .green, .blue, .yellow],
+        pegChoices: [Peg] = ["red", "green", "blue", "yellow"],
         numberOfPegs: Int = 4
     ) {
         self.pegChoices = pegChoices
@@ -34,7 +34,11 @@ let numberOfPegs: Int
         )
 
         masterCode.randomize(from: pegChoices)
-        print(masterCode)
+        print("MASTER CODE:", masterCode.pegs)
+    }
+    
+    static func randomNumberOfPegs() -> Int {
+        Int.random(in: 3...6)
     }
 
     mutating func attemptGuess() {
@@ -83,7 +87,7 @@ struct Code {
 //    init — це спеціальна функція, яка виконується, коли ми створюємо новий екземпляр структури.
 //   Тут створюємо масив із тією кількістю фішок, яку ми передали.
     
-    static let missing: Peg = .clear
+    static let missing: Peg = ""
     
     enum Kind: Equatable {
         case master

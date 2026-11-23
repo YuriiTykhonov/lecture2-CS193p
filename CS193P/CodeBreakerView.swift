@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct CodeBreakerView: View {
-    @State var game = CodeBreaker(pegChoices: [.brown, .yellow, .orange, .black], numberOfPegs: 6)
-// Тут ми просто вказуємо, що зараз тестуємо гру з шістьма фішками.
-// In the future I will change something
+    @State var game = CodeBreaker(pegChoices: ["😀", "🐱", "🚗", "⚽"],numberOfPegs: 4)
+    // Тут ми просто вказуємо, що зараз тестуємо гру з шістьма фішками.
+    let emojiChoices = [
+        ["🐶", "🐱", "🐭", "🐰", "🦊", "🐻"],
+        ["🍎", "🍕", "🍔", "🍩", "🍓", "🍉"],
+        ["🚗", "🚕", "🚌", "🚲", "✈️", "🚀"]
+    ]
+    
+    let colorChoices = ["red", "green", "blue", "yellow"]
+    
     var body: some View {
         VStack {
             Button("Restart Game") {
                 withAnimation {
-                    game = CodeBreaker(pegChoices: game.pegChoices,
-                                       numberOfPegs: Int.random(in: 3...6))
+                    let isEmojiGame = Bool.random()
+                    let randomPegChoices = isEmojiGame ? emojiChoices.randomElement() ?? emojiChoices[0] : colorChoices
+                    
+                    game  = CodeBreaker(pegChoices: randomPegChoices, numberOfPegs: CodeBreaker.randomNumberOfPegs())
+                    //Тепер Restart Game зберігатиме поточну кількість фішок.
+                    //	У цьому завданні потрібно змінити Restart Game так, щоб нова гра випадково отримувала кількість фішок від 3 до 6. Тож ми реалізуємо це через Int.random
                 }
-//Тепер Restart Game зберігатиме поточну кількість фішок.
-//	У цьому завданні потрібно змінити Restart Game так, щоб нова гра випадково отримувала кількість фішок від 3 до 6. Тож ми реалізуємо це через Int.random
             }
             view(for: game.masterCode)
             ScrollView {
@@ -31,10 +40,10 @@ struct CodeBreakerView: View {
         }
         .padding()
     }
-/* Створюємо кнопку restart game, з with animation виконуємо заміну стану з анімацією,
- game = CodeBreaker(pegChoices: game.pegChoices) - створюємо абсолютно нову гру, передаємо цій частині ті самі доступні кольори, які були у попередній грі, з game = зберегаємо  .brown, .yellow, .orange, .black.
- Тобто: коли користувач натискає Restart Game, Створюється новий CodeBreaker
- Виконується init та генерується новий masterCode*/
+    /* Створюємо кнопку restart game, з with animation виконуємо заміну стану з анімацією,
+     game = CodeBreaker(pegChoices: game.pegChoices) - створюємо абсолютно нову гру, передаємо цій частині ті самі доступні кольори, які були у попередній грі, з game = зберегаємо  .brown, .yellow, .orange, .black.
+     Тобто: коли користувач натискає Restart Game, Створюється новий CodeBreaker
+     Виконується init та генерується новий masterCode*/
     
     var guessButton: some View {
         Button("Guess") {
@@ -50,15 +59,20 @@ struct CodeBreakerView: View {
         HStack {
             ForEach(code.pegs.indices, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 10)
+                    .fill(color(for: code.pegs[index]) ?? .clear)
                     .overlay {
                         if code.pegs[index] == Code.missing {
                             RoundedRectangle(cornerRadius: 10)
                                 .strokeBorder(Color.gray)
+                        } else if color(for: code.pegs[index]) == nil {
+                            Text(code.pegs[index])
+                                .font(.system(size: 120))
+                                .minimumScaleFactor(9/120)
+                                .foregroundStyle(.primary)
                         }
                     }
                     .contentShape(Rectangle())
                     .aspectRatio(1, contentMode: .fit)
-                    .foregroundStyle(code.pegs[index])
                     .onTapGesture {
                         if code.kind == .guess {
                             game.changeGuessPeg(at: index)
@@ -73,9 +87,25 @@ struct CodeBreakerView: View {
             }
         }
     }
+    
+    func color(for peg: Peg) -> Color? {
+        switch peg {
+        case "red" : return.red
+        case "green": return.green
+        case "blue": return.blue
+        case "yellow": return.yellow
+        case "brown": return.brown
+        case "orange" : return.orange
+        case "black" : return.black
+        default : return nil
+        }
+    }
+/*нам потрібно створити невелику функцію, яка перетворюватиме назву кольору на справжній Color.
+for peg: Peg — передаємо назву фішки.
+Color? — функція може повернути колір або nil.switch перевіряє переданий рядок, а як що повернути emoji то функція поверне nil*/
 }
 
 #Preview {
     CodeBreakerView()
 }
- 
+
